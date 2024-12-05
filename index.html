@@ -104,8 +104,8 @@ th:nth-child(9), td:nth-child(9) {
             <div>
                 <strong>船牌:</strong>
                 <select>
-                    <option value="SJN1386/F">SJN1386/F</option>
-                    <option value="SAA7912Y">SAA7912Y</option>
+                    <option value="SJN1828/F">SJN1828/F</option>
+                    <option value="SJN1229/F">SJN1229/F</option>
                 </select>
             </div>
             <div style="text-align: right;">
@@ -639,10 +639,9 @@ th:nth-child(9), td:nth-child(9) {
     const price4Cell = row.querySelector('td:nth-child(4) .price'); // 第4格
     const price9Cell = row.querySelector('td:nth-child(9) .price'); // 第9格
 
-    // 为第4列绑定 Ctrl + 双击事件
+    // 为第4列绑定双击事件
     if (price4Cell) {
-        price4Cell.addEventListener('dblclick', (event) => {
-            if (!event.ctrlKey) return; // 如果没有按下 Ctrl 键，直接返回
+        price4Cell.addEventListener('dblclick', () => {
             if (price4Cell.dataset.calculated === 'true') return; // 如果已经计算过，直接返回
 
             price4Cell.value = 'Total'; // 设置当前单元格为 "Total"
@@ -651,10 +650,9 @@ th:nth-child(9), td:nth-child(9) {
         });
     }
 
-    // 为第9列绑定 Ctrl + 双击事件
+    // 为第9列绑定双击事件
     if (price9Cell) {
-        price9Cell.addEventListener('dblclick', (event) => {
-            if (!event.ctrlKey) return; // 如果没有按下 Ctrl 键，直接返回
+        price9Cell.addEventListener('dblclick', () => {
             if (price9Cell.dataset.calculated === 'true') return; // 如果已经计算过，直接返回
 
             price9Cell.value = 'Total'; // 设置当前单元格为 "Total"

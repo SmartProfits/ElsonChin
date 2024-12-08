@@ -1,727 +1,941 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A4 表格範本</title>
-    <style>
-        @page {
-            size: A4;
-            margin: 20mm;
-        }
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            width: 230mm;
-            height: 297mm;
-            box-sizing: border-box;
-        }
-        .container {
-            width: 100%;
-            height: 100%;
-            padding: 20mm;
-            box-sizing: border-box;
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .header div {
-            flex: 1;
-        }
-        .header select {
-            border: none;
-            font-size: 16px;
-            outline: none;
-            width: 80%;
-            text-align: center;
-        }
-        .header input[type="date"] {
-            border: none;
-            font-size: 16px;
-            outline: none;
-            width: 80%;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-        th:nth-child(5), td:nth-child(5),
-th:nth-child(10), td:nth-child(10) {
-    width: 120px; /* 这里设置总计列的宽度为 120px，可以根据需求调整 */
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A4 表格範本</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm;
+    }
 
-th:nth-child(1), td:nth-child(1),
-th:nth-child(6), td:nth-child(6) {
-    width: 60px; /*客戶/現金 */
-}
-th:nth-child(3), td:nth-child(3),
-th:nth-child(8), td:nth-child(8) {
-    width: 20px; /*客戶/現金 */
-}
-th:nth-child(4), td:nth-child(4),
-th:nth-child(9), td:nth-child(9) {
-    width: 20px; /*客戶/現金 */
-}
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      width: 230mm;
+      height: 297mm;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .container {
+      width: 100%;
+      height: 100%;
+      padding: 20mm;
+      box-sizing: border-box;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .header div {
+      flex: 1;
+    }
+
+    .header select {
+      border: none;
+      font-size: 16px;
+      outline: none;
+      width: 80%;
+      text-align: center;
+    }
+
+    .header input[type="date"] {
+      border: none;
+      font-size: 16px;
+      outline: none;
+      width: 80%;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      margin: auto;
+      /* 水平居中 */
+    }
+
+    th:nth-child(5),
+    td:nth-child(5),
+    th:nth-child(10),
+    td:nth-child(10) {
+      width: 120px;
+      /* 这里设置总计列的宽度为 120px，可以根据需求调整 */
+    }
+
+    th:nth-child(1),
+    td:nth-child(1),
+    th:nth-child(6),
+    td:nth-child(6) {
+      width: 60px;
+      /*客戶/現金 */
+    }
+
+    th:nth-child(3),
+    td:nth-child(3),
+    th:nth-child(8),
+    td:nth-child(8) {
+      width: 20px;
+      /*客戶/現金 */
+    }
+
+    th:nth-child(4),
+    td:nth-child(4),
+    th:nth-child(9),
+    td:nth-child(9) {
+      width: 100px;
+      /*客戶/現金 */
+    }
 
 
-        
-        th:nth-child(2), td:nth-child(2),
-        th:nth-child(7), td:nth-child(7) {
-            width: 250px; /* 調整貨品列寬度 */
-        }
-        th, td {
-            border: 1px solid black;
-            text-align: center;
-            padding: 8px;
-            white-space: nowrap;
-        }
-        input {
-            width: 100%;
-            border: none;
-            text-align: center;
-            outline: none;
-        }
-        /* 隐藏数字输入框的上下箭头 */
-        input[type="number"]::-webkit-inner-spin-button,
-        input[type="number"]::-webkit-outer-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        input[type="number"] {
-            -moz-appearance: textfield; /* Firefox 隐藏箭头 */
-            appearance: none; /* 通用隐藏箭头 */
-        }
-    </style>
+
+    th:nth-child(2),
+    td:nth-child(2),
+    th:nth-child(7),
+    td:nth-child(7) {
+      width: 250px;
+      /* 調整貨品列寬度 */
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      text-align: center;
+      padding: 8px;
+      white-space: nowrap;
+    }
+
+    input {
+      width: 100%;
+      border: none;
+      text-align: center;
+      outline: none;
+    }
+
+    /* 隐藏数字输入框的上下箭头 */
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[type="number"] {
+      -moz-appearance: textfield;
+      /* Firefox 隐藏箭头 */
+      appearance: none;
+      /* 通用隐藏箭头 */
+    }
+
+    /* 弹框样式 */
+    .overlay {
+      display: none;
+      /* 默认隐藏 */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .modal {
+      display: none;
+      /* 默认隐藏 */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      width: 400px;
+      padding: 20px;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .modal-header .close {
+      cursor: pointer;
+      font-size: 16px;
+      background: none;
+      border: none;
+    }
+
+    .modal-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      /* 允许按钮换行 */
+      justify-content: space-around;
+      gap: 10px;
+      /* 按钮之间增加间距 */
+    }
+
+    .modal-buttons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .modal-buttons .btn-total {
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .modal-buttons .btn-cash {
+      background-color: #2196f3;
+      color: white;
+    }
+
+    .modal-buttons .btn-clear {
+      background-color: #ff5722;
+      color: white;
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <!-- Header Section -->
-        <div class="header">
-            <div>
-                <strong>船牌:</strong>
-                <select>
-					<option value="选择船牌">选择船牌</option>
-                    <option value="SJN1828/F">SJN1828/F</option>
-                    <option value="SJN1229/F">SJN1229/F</option>
-                </select>
-            </div>
-            <div style="text-align: right;">
-                <strong>日期:</strong> <input type="date" />
-            </div>
-        </div>
 
-        <!-- Table Section -->
-        <table>
-            <thead>
-                <tr>
-                    <th style="white-space: nowrap;">客戶/現金</th>
-                    <th>貨品</th>
-                    <th>重量</th>
-                    <th>單價</th>
-                    <th>總計</th>
-                    <th style="white-space: nowrap;">客戶/現金</th>
-                    <th>貨品</th>
-                    <th>重量</th>
-                    <th>單價</th>
-                    <th>總計</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Example row -->
-                <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                 <tr>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                    <td><input type="text"></td>
-                    <td>
-                        <input type="text" class="product" placeholder="">
-                    </td>
-                    <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
-                    <td><input type="text" class="total" readonly></td>
-                </tr>
-                
-            </tbody>
-        </table>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <div class="header">
+      <div>
+        <strong>船牌:</strong>
+        <select>
+          <option value="选择船牌">选择船牌</option>
+          <option value="SJN1828/F">SJN1828/F</option>
+          <option value="SJN1229/F">SJN1229/F</option>
+        </select>
+      </div>
+      <div style="text-align: right;">
+        <strong>日期:</strong> <input type="date" />
+      </div>
     </div>
 
-    <script>
-        // 快捷字列表
-        const productOptions = [
-            "Basong",
-            "Basong (m)",
-            "Basong (ks)",
-            "Tulai",
-            "Tulai (m)",
-            "Tulai (s)",
-            "Tulai (ss)",
-            "Lumahan",
-            "Lumahan (m)",
-            "Bubu",
-            "Titir (s)",
-            "Tenggiri",
-            "Tenggiri (s)"
-        ];
+    <!-- Table Section -->
+    <table id="my_table">
+      <thead>
+        <tr>
+          <th style="white-space: nowrap;">客戶/現金</th>
+          <th>貨品</th>
+          <th>重量</th>
+          <th>單價</th>
+          <th>總計</th>
 
-        // 为所有货品输入框绑定输入事件
-        document.querySelectorAll('tbody tr').forEach(row => {
-    const price4Cell = row.querySelector('td:nth-child(4) .price'); // 第4格
-    const price9Cell = row.querySelector('td:nth-child(9) .price'); // 第9格
+          <th style="white-space: nowrap;">客戶/現金</th>
+          <th>貨品</th>
+          <th>重量</th>
+          <th>單價</th>
+          <th>總計</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Example row -->
 
-    // 为第4列绑定双击事件
-    if (price4Cell) {
-        price4Cell.addEventListener('dblclick', () => {
-            if (price4Cell.dataset.calculated === 'true') return; // 如果已经计算过，直接返回
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
+        <tr>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+          <td><input type="text" class="cash"></td>
+          <td>
+            <input type="text" class="product" placeholder="">
+          </td>
+          <td><input type="number" class="weight" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="price" oninput="calculateTotal(this)"></td>
+          <td><input type="text" class="total" readonly></td>
+        </tr>
 
-            price4Cell.value = 'Total'; // 设置当前单元格为 "Total"
-            calculateGroupTotal(5, row.querySelector('td:nth-child(5) .total')); // 更新第5列总计
-            price4Cell.dataset.calculated = 'true'; // 设置标记，防止重复计算
-        });
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 弹框和遮罩层 -->
+  <div class="overlay" id="overlay"></div>
+  <div class="modal" id="modal">
+    <div class="modal-header">
+      <span>选择操作</span>
+      <button class="close" onclick="closeModal()">X</button>
+    </div>
+    <div class="modal-buttons">
+      <button class="btn-total" onclick="showTotal('total')">total</button>
+      <button class="btn-cash" onclick="showTotal('cash')">cash</button>
+      <button class="btn-clear" onclick="showTotal('clear')">delete</button>
+    </div>
+  </div>
+
+  <!-- 思路 -->
+  <!-- step1 双击将 cash和普通金额 的总和值，放在map中  -->
+  <!-- step2 点击  按钮显示相应的金额在表格中 -->
+  <script>
+
+    // 字体是否包含 cash 字样
+    const fontIncludeCashMap = new Map();
+
+    // 总行数
+    let rowCount = 0;
+
+    // 普通总价 和 现金总价
+    let generalTotal = 0;
+    let cashTotal = 0;
+
+
+    // 显示弹框
+    function showModal(row, colIndex) {
+      const modal = document.getElementById('modal');
+      modal.dataset.rowIndex = row.rowIndex; // 保存行号
+      modal.dataset.colIndex = colIndex; // 保存列号
+      modal.style.display = 'block';
+      document.getElementById('overlay').style.display = 'block';
     }
 
-    // 为第9列绑定双击事件
-    if (price9Cell) {
-        price9Cell.addEventListener('dblclick', () => {
-            if (price9Cell.dataset.calculated === 'true') return; // 如果已经计算过，直接返回
-
-            price9Cell.value = 'Total'; // 设置当前单元格为 "Total"
-            calculateGroupTotal(10, row.querySelector('td:nth-child(10) .total'), true); // 更新第10列总计
-            price9Cell.dataset.calculated = 'true'; // 设置标记，防止重复计算
-        });
-    }
-});
-
-// 输入事件，用于实时计算单行总计
-function calculateTotal(element) {
-    const row = element.parentElement.parentElement; // 获取当前行
-    const cells = row.querySelectorAll('td'); // 获取当前行的所有单元格
-
-    // 第一组（第3、4格子到第5格子）
-    const weight1 = parseFloat(cells[2].querySelector('.weight').value) || 0;
-    const price1 = parseFloat(cells[3].querySelector('.price').value) || 0;
-    const total1 = cells[4].querySelector('.total');
-
-    if (weight1 && price1) {
-        total1.value = calculateResult(weight1, price1); // 计算并更新总计
-    } else {
-        total1.value = ''; // 输入不全时清空
+    function closeModal() {
+      const modal = document.getElementById('modal');
+      modal.style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
     }
 
-    // 第二组（第8、9格子到第10格子）
-    const weight2 = parseFloat(cells[7].querySelector('.weight').value) || 0;
-    const price2 = parseFloat(cells[8].querySelector('.price').value) || 0;
-    const total2 = cells[9].querySelector('.total');
 
-    if (weight2 && price2) {
-        total2.value = calculateResult(weight2, price2); // 计算并更新总计
-    } else {
-        total2.value = ''; // 输入不全时清空
+    // 显示 cash 的逻辑
+    function showTotal(showTotalType) {
+      printTotal(showTotalType);
+      closeModal();
     }
-}
 
-// 计算总和
-function calculateGroupTotal(columnIndex, targetCell, includePreviousColumn = false) {
-    let sum = 0;
 
-    // 遍历所有行并累加指定列的值
-    document.querySelectorAll('tbody tr').forEach(row => {
-        const cell = row.querySelector(`td:nth-child(${columnIndex}) .total`);
-        if (cell && cell.value && cell.value.trim().toLowerCase() !== 'total') {
-            sum += parseFloat(cell.value) || 0;
+    // 双击行的任意位置，修改价格
+    document.querySelectorAll('#my_table tbody tr').forEach(row => {
+      row.addEventListener('dblclick', (event) => {
+
+        // 获取被双击的元素 找到最近的<td>祖先元素
+        let targetTd = event.target.closest('td');
+
+        // 如果被双击的元素不是<td>（可能是<td>内的某个子元素），则不执行任何操作
+        if (!targetTd || !row.contains(targetTd)) {
+          return;
         }
+
+        // 获取被双击的<td>元素在其父<tr>中的索引（即列号，注意索引是从0开始的）
+        let columnIndex = Array.prototype.indexOf.call(row.children, targetTd);
+        let rowIdxWeight = columnIndex < 5 ? 3 : 8;
+        let rowIdxPrice = columnIndex < 5 ? 4 : 9;
+        let rowIdxTotal = columnIndex < 5 ? 5 : 10;
+        const weightCell = row.querySelector(`td:nth-child(${rowIdxWeight}) .weight`);
+        const priceCell = row.querySelector(`td:nth-child(${rowIdxPrice}) .price`);
+        const totalCell = row.querySelector(`td:nth-child(${rowIdxTotal}) .total`);
+
+
+        if (weightCell && weightCell.value && weightCell.value !== '' &&
+          priceCell && priceCell.value && priceCell.value !== '' && (priceCell.value !== 'total' || priceCell.value !== 'cash') &&
+          totalCell && totalCell.value && totalCell.value !== '') {
+          alert("Warnning!!! Data exists in the current row, Disallowed operation, pleace check!")
+          return;
+        }
+
+        processIncludeFont('cash');
+
+        // 根据列号调用showModal函数
+        showModal(row, columnIndex < 5 ? 4 : 9)
+
+
+      });
     });
 
-    // 如果需要累加上一列的值
-    if (includePreviousColumn) {
-        document.querySelectorAll('tbody tr').forEach(row => {
-            const cell = row.querySelector(`td:nth-child(${columnIndex - 5}) .total`);
-            if (cell && cell.value && cell.value.trim().toLowerCase() !== 'total') {
-                sum += parseFloat(cell.value) || 0;
-            }
-        });
+
+    // 处理是否包含cash字样
+    function processIncludeFont(fontName) {
+      // 寻找表单信息
+      const table = document.getElementById('my_table');
+      // 遍历表格的所有行（<tr>元素）
+      rowCount = table.rows.length - 1;
+      generalTotal = 0;
+      cashTotal = 0;
+      for (let i = 1; i < rowCount; i++) {
+        const row = table.rows[i];
+        const firstCol = row.querySelector(`td:nth-child(1) .cash`); // 获取第一列
+        const sixCol = row.querySelector(`td:nth-child(6) .cash`); // 获取第6列
+
+        // 检查单元格的文本内容是否包含'cash'字样
+        if (firstCol && firstCol.value && firstCol.value.includes(fontName)) {
+          fontIncludeCashMap.set("5-" + i, 'Y');
+        }
+
+        if (sixCol && sixCol.value && sixCol.value.includes(fontName)) {
+          fontIncludeCashMap.set("10-" + i, 'Y');
+        }
+        // 计算左列和右列金额
+
+        const leftTotalCol = row.querySelector(`td:nth-child(5) .total`);
+        if (fontIncludeCashMap.get("5-" + i) !== 'Y' &&
+          leftTotalCol && leftTotalCol.value &&
+          (row.querySelector(`td:nth-child(4) .price`).value !== 'cash' && row.querySelector(`td:nth-child(4) .price`).value !== 'total')) {
+          generalTotal += parseFloat(leftTotalCol.value) || 0;
+        }
+        if (fontIncludeCashMap.get("5-" + i) === 'Y' &&
+          leftTotalCol && leftTotalCol.value &&
+          (row.querySelector(`td:nth-child(4) .price`).value !== 'cash' && row.querySelector(`td:nth-child(4) .price`).value !== 'total')) {
+          cashTotal += parseFloat(leftTotalCol.value) || 0;
+        }
+
+        const rightTotalCol = row.querySelector(`td:nth-child(10) .total`);
+        if (fontIncludeCashMap.get("10-" + i) !== 'Y' &&
+          rightTotalCol && rightTotalCol.value &&
+          (row.querySelector(`td:nth-child(9) .price`).value !== 'cash' && row.querySelector(`td:nth-child(9) .price`).value !== 'total')) {
+          generalTotal += parseFloat(rightTotalCol.value) || 0;
+        }
+        if (fontIncludeCashMap.get("10-" + i) === 'Y' &&
+          rightTotalCol && rightTotalCol.value &&
+          (row.querySelector(`td:nth-child(9) .price`).value !== 'cash' && row.querySelector(`td:nth-child(9) .price`).value !== 'total')) {
+          cashTotal += parseFloat(rightTotalCol.value) || 0;
+        }
+      }
     }
 
-    // 更新目标单元格
-    targetCell.value = sum.toFixed(2);
-}
+    // 输出总价
+    function printTotal(showTotalType) {
 
-function calculateResult(weight, price) {
-    const result = weight * price;
-    return Number.isInteger(result) ? result : result.toFixed(2); // 整数不显示小数点，小数保留两位
-}
+      const modal = document.getElementById('modal');
+      const rowIndex = modal.dataset.rowIndex;
+      const colIndex = parseInt(modal.dataset.colIndex, 10); // 使用10作为基数来解析整数
+      const totalPrint = document.getElementById('my_table').rows[rowIndex].querySelector(`td:nth-child(${(colIndex + 1)}) .total`);
+      const pricePrint = document.getElementById('my_table').rows[rowIndex].querySelector(`td:nth-child(${colIndex}) .price`);
 
-    </script>
+      if (showTotalType === 'total') {
+        pricePrint.value = showTotalType;
+        totalPrint.value = generalTotal.toFixed(2);
+      }
+
+      if (showTotalType === 'cash') {
+        pricePrint.value = showTotalType;
+        totalPrint.value = cashTotal.toFixed(2);
+      }
+
+      if (showTotalType === 'clear') {
+        if (totalPrint && totalPrint.value && totalPrint.value !== '') {
+          pricePrint.value = '';
+          totalPrint.value = '';
+        }
+      }
+    }
+
+    // 输入事件，用于实时计算单行总计
+    function calculateTotal(element) {
+      const row = element.parentElement.parentElement; // 获取当前行
+      const cells = row.querySelectorAll('td'); // 获取当前行的所有单元格
+
+      // 第一组（第3、4格子到第5格子）
+      const weight1 = parseFloat(cells[2].querySelector('.weight').value) || 0;
+      const price1 = parseFloat(cells[3].querySelector('.price').value) || 0;
+      const total1 = cells[4].querySelector('.total');
+
+      if (weight1 && price1) {
+        total1.value = calculateResult(weight1, price1); // 计算并更新总计
+      } else {
+        total1.value = ''; // 输入不全时清空
+      }
+
+      // 第二组（第8、9格子到第10格子）
+      const weight2 = parseFloat(cells[7].querySelector('.weight').value) || 0;
+      const price2 = parseFloat(cells[8].querySelector('.price').value) || 0;
+      const total2 = cells[9].querySelector('.total');
+
+      if (weight2 && price2) {
+        total2.value = calculateResult(weight2, price2); // 计算并更新总计
+      } else {
+        total2.value = ''; // 输入不全时清空
+      }
+    }
+
+    function calculateResult(weight, price) {
+      const result = weight * price;
+      return Number.isInteger(result) ? result : result.toFixed(2); // 整数不显示小数点，小数保留两位
+    }
+
+  </script>
 </body>
+
 </html>
